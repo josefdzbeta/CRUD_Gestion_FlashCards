@@ -12,8 +12,6 @@
             $this->resultado=$this->conexion->query($consulta);
         }
         public function error(){
-            if($this->conexion->errno=='1062')
-            if($this->conexion->errno=='1406')
             return $this->conexion->errno.''.$this->conexion->error;
         }
         public function filasAfectadas(){
@@ -32,6 +30,4 @@
             return $this->conexion->insert_id;
         }
     }   
-
-
 ?>
