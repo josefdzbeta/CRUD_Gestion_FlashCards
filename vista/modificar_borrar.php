@@ -16,7 +16,7 @@
                 
                 $controlador = new Controlador();
                 $id=$_GET['id'];
-                
+                //Según acción realizar modificación o borrado
                 if($_GET['accion']=='Modificar'){
                     $datos=$controlador->idFlashCard($id);
                     echo '
@@ -35,6 +35,7 @@
                     <hr />
                     <input type="submit" value="Modificar Datos" name="modificar">
                     </form>';
+                    echo '<a href="../index.html">Menú Principal</a>';
                     if (isset($_POST['modificar'])){
                         $descripcion='"'.$_POST['descripcion'].'"';
                         $audio='"'.$_FILES['audio']['tmp_name'].'"';
@@ -48,11 +49,13 @@
                         }else{
                             $tipo = '"'.'Animales'.'"';
                         }
+                        //Mandamos los datos a modificar
                         $controlador->actualizarFlashCard($_GET['id'],$descripcion, $audio, $imagen, $tipo);
                     }    
                 }else{
+                    //Pasamos el id al controlador para eliminar la flashcard
                     $controlador->eliminarFlashCard($_GET['id']);
-                    header('Refresh:2; url=listar.php');
+                    header('Refresh:0; url=listar.php');
                     echo 'Datos borrados con éxito';
                 }
             ?>

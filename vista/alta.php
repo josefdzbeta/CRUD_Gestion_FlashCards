@@ -15,6 +15,8 @@
             $tipo = '"'.'Animales'.'"';
         }
         $controlador->altaFlashCard($descripcion, $audio, $imagen, $tipo);
+        echo 'Datos Introducidos correctamente';
+        header('Refresh:1; url=alta.php');
     }    
 ?>
 <!DOCTYPE html>
@@ -27,11 +29,6 @@
         <title>Gestión de FlashCards</title>
     </head>
     <body>
-        <div class="contenedor">
-            <a href="modificar.php">Modificar</a>
-            <a href="borrarFlashCard.php">Borrar</a>
-            <a href="listarFlashCard.php">Listar</a>
-        </div>
         <div class="contenedor">
             <h1>Alta de FlashCard</h1>
             <form method="post" enctype="multipart/form-data">
@@ -49,6 +46,7 @@
                 <hr />
                 <input type="submit" value="Dar de Alta" name="enviar">
             </form>
+            <a href="../index.html">Menú Principal</a>
         </div>
     </body>
 </html>
