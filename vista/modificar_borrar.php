@@ -36,6 +36,7 @@
                     <input type="submit" value="Modificar Datos" name="modificar">
                     </form>';
                     echo '<a href="../index.html">Menú Principal</a>';
+                    echo '<a href="listar.php">Ver Listado</a>';
                     if (isset($_POST['modificar'])){
                         $descripcion='"'.$_POST['descripcion'].'"';
                         $audio='"'.$_FILES['audio']['tmp_name'].'"';
